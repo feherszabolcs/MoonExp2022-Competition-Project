@@ -9,5 +9,6 @@
     <Canvas>
         <Label Name="f4Meresek" Content="Mérések száma: " Canvas.Left="22" Canvas.Top="12"/>
         <Label Name="f4Retegek" Content="Rétegek száma: " Canvas.Left="24" Canvas.Top="43"/>
+        <Label Name="teszt"  Content ="Label" Canvas.Left="152" Canvas.Top="177" Width="75"/>
     </Canvas>
 </Window>

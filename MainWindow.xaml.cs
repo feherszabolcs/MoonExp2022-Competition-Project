@@ -25,9 +25,10 @@ namespace MoonExp2022
         {
             InitializeComponent();
             
-            Megoldas m = new Megoldas("minta.txt");
+            Megoldas m = new Megoldas("retegek_lencsekkel.txt");
             f4Meresek.Content += m.MeresekSzama.ToString();
             f4Retegek.Content += m.RetegekSzama.ToString();
+            teszt.Content = m.TenylegesLencsekSzama(2);
         }
     }
 }
