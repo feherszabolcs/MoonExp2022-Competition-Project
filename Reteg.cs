@@ -22,17 +22,16 @@ namespace MoonExp2022
             int kezd = 0;
             int veg = 0;
             foreach (var item in Meresek)
-            { 
+            {
                 if (item.Value == 0 && kezd == 0) kezd = item.Key;
-                if (item.Value == 0 && kezd < item.Key && kezd+1 != item.Key) veg = item.Key;
-                if(veg!= 0 && kezd!= 0)
+                if (item.Value == 0 && kezd < item.Key && kezd + 1 != item.Key) veg = item.Key;
+                if (veg != 0 && kezd != 0)
                 {
                     Lencse l = new Lencse(kezd, veg);
                     Lencsek.Add(l);
                     kezd = veg = 0;
                 }
             }
-           
         }
 
         public int RetegVastagsaga(int meresSorszama)

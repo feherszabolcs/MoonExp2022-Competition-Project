@@ -21,14 +21,23 @@ namespace MoonExp2022
     /// </summary>
     public partial class MainWindow : Window
     {
+        static Megoldas m = new Megoldas("minta.txt");
         public MainWindow()
         {
             InitializeComponent();
-            
-            Megoldas m = new Megoldas("retegek_lencsekkel.txt");
             f4Meresek.Content += m.MeresekSzama.ToString();
             f4Retegek.Content += m.RetegekSzama.ToString();
-            teszt.Content = m.TenylegesLencsekSzama(2);
+            for (int i = 1; i <= m.RetegekSzama; i++)
+            {
+                f5Retegek.Items.Add(i);
+            }
+            teszt.Content = m.TenylegesLencsekSzama(5);
+        }
+
+        private void f5Retegek_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            f5Legkisebb.Content += m.MaxVastagsag((int)f5Retegek.SelectedItem).ToString();
+            f5Legnagyobb.Content += m.MinVastagsag((int)f5Retegek.SelectedItem).ToString();
         }
     }
 }

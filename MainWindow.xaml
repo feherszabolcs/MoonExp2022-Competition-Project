@@ -9,6 +9,11 @@
     <Canvas>
         <Label Name="f4Meresek" Content="Mérések száma: " Canvas.Left="22" Canvas.Top="12"/>
         <Label Name="f4Retegek" Content="Rétegek száma: " Canvas.Left="24" Canvas.Top="43"/>
-        <Label Name="teszt"  Content ="Label" Canvas.Left="152" Canvas.Top="177" Width="75"/>
+
+        <ComboBox x:Name="f5Retegek" Width="100" Height="24" Canvas.Left="24" Canvas.Top="90" SelectionChanged="f5Retegek_SelectionChanged"/>
+
+        <Label Name="teszt"  Content ="Label" Canvas.Left="156" Canvas.Top="257" Width="75"/>
+        <Label Name="f5Legnagyobb"  Content="Legnagyobb: " Canvas.Left="53" Canvas.Top="129" Width="95"/>
+        <Label Name="f5Legkisebb"  Content="Legkisebb: " Canvas.Left="53" Canvas.Top="155" Width="95"/>
     </Canvas>
 </Window>

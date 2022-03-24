@@ -52,11 +52,14 @@ namespace MoonExp2022
         {
             for (int j = 0; j < Retegek.Count; j++)
             {
-                for (int i = 0; i < Retegek[j].Lencsek.Count; i++)
+                if (j != 0 && j != Retegek.Count - 1)
                 {
-                    if (RetegvastagsagAlatta(Retegek[j].Lencsek[i].Kezdete, j) >0 && RetegVastagsagFelette(Retegek[j].Lencsek[i].Vege, j) > 0)
+                    for (int i = 0; i < Retegek[j].Lencsek.Count; i++)
                     {
-                        Retegek[j].Lencsek[i].TenylegesLencse = true;
+                        if (RetegvastagsagAlatta(Retegek[j].Lencsek[i].Kezdete, j) > 0 && RetegVastagsagFelette(Retegek[j].Lencsek[i].Vege, j) > 0)
+                        {
+                            Retegek[j].Lencsek[i].TenylegesLencse = true;
+                        }
                     }
                 }
             }
@@ -68,7 +71,7 @@ namespace MoonExp2022
 
         public int LehetsegesLencsekSzama(int retegSorszam)
         {
-            Reteg r = Retegek[retegSorszam-1];
+            Reteg r = Retegek[retegSorszam - 1];
             return r.LehetsegesLencsekSzama;
         }
         private int SzummaRetegVastagsag(int meresSorszam)
@@ -76,19 +79,19 @@ namespace MoonExp2022
             int szum = 0;
             foreach (var item in Retegek)
             {
-                szum+=item.RetegVastagsaga(meresSorszam);
+                szum += item.RetegVastagsaga(meresSorszam);
             }
             return szum; //pl a 7-es mérésen az összes mélység
         }
 
         public int MinVastagsag(int retegSorszam)
         {
-            Reteg r = Retegek[retegSorszam];
+            Reteg r = Retegek[retegSorszam-1];
             return r.MinVastagsag;
         }
         public int MaxVastagsag(int retegSorszam)
         {
-            Reteg r = Retegek[retegSorszam];
+            Reteg r = Retegek[retegSorszam-1];
             return r.MaxVastagsag;
         }
 
