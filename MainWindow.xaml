@@ -5,15 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoonExp2022"
         mc:Ignorable="d"
-        Title="MoonExp2022" Height="450" Width="800">
-    <Canvas>
+        Title="MoonExp2022" Height="750" Width="600">
+    <Canvas x:Name="main">
         <Label Name="f4Meresek" Content="Mérések száma: " Canvas.Left="22" Canvas.Top="12"/>
         <Label Name="f4Retegek" Content="Rétegek száma: " Canvas.Left="24" Canvas.Top="43"/>
 
         <ComboBox x:Name="f5Retegek" Width="100" Height="24" Canvas.Left="24" Canvas.Top="90" SelectionChanged="f5Retegek_SelectionChanged"/>
+        <Label Name="f5Legnagyobb"  Content="Legnagyobb rétegvastagság: " Canvas.Left="53" Canvas.Top="129" Width="210"/>
+        <Label Name="f5Legkisebb"  Content="Legkisebb rétegvastagság: " Canvas.Left="53" Canvas.Top="155" Width="210"/>
 
-        <Label Name="teszt"  Content ="Label" Canvas.Left="156" Canvas.Top="257" Width="75"/>
-        <Label Name="f5Legnagyobb"  Content="Legnagyobb: " Canvas.Left="53" Canvas.Top="129" Width="95"/>
-        <Label Name="f5Legkisebb"  Content="Legkisebb: " Canvas.Left="53" Canvas.Top="155" Width="95"/>
+        <Label Name="f6ElvekonyodottDb" Canvas.Left="24" Canvas.Top="191" Height="26" Width="273" Content="." />
+        <Label Name="f7" Content="feltérképezett pont: " Canvas.Left="163" Canvas.Top="232"/>
+        <GroupBox Canvas.Left="34" Canvas.Top="217" Height="65" Width="124">
+            <Canvas Height="57" Margin="0,0,8,0">
+                <RadioButton Content="Legmélyebb" Canvas.Left="10" Canvas.Top="40" Name="chbLegmélyebb" Checked="chbLegmélyebb_Checked"/>
+                <RadioButton Content="Legmagasabb" Canvas.Left="10" Canvas.Top="20" Name="chbLegmagasabb" Checked="chbLegmagasabb_Checked"/>
+            </Canvas>
+        </GroupBox>
+        <Label Content="Mérés sorszáma: " Canvas.Left="299" Canvas.Top="232" Name="f7Sorszam"/>
+        <Label Content="Mélysége a felszíntől: " Canvas.Left="299" Canvas.Top="258" Name="f7Melyseg"/>
+
+        <Label Content="8.feladat:" Canvas.Left="24" Canvas.Top="305"/>
+        <Label Content="9. feladat: " Canvas.Left="24" Canvas.Top="478"/>
+
     </Canvas>
 </Window>

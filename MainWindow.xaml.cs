@@ -21,7 +21,7 @@ namespace MoonExp2022
     /// </summary>
     public partial class MainWindow : Window
     {
-        static Megoldas m = new Megoldas("minta.txt");
+        static Megoldas m = new Megoldas("retegek_lencsekkel.txt");
         public MainWindow()
         {
             InitializeComponent();
@@ -31,13 +31,57 @@ namespace MoonExp2022
             {
                 f5Retegek.Items.Add(i);
             }
-            teszt.Content = m.TenylegesLencsekSzama(5);
+            f6ElvekonyodottDb.Content = m.TeljesenElvekonyodottRetegekSzama + "db réteg vékonyodott el teljesen.";
+            LehetsegesLencsek();
+            ValodiLencsek();
         }
 
         private void f5Retegek_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            f5Legkisebb.Content += m.MaxVastagsag((int)f5Retegek.SelectedItem).ToString();
-            f5Legnagyobb.Content += m.MinVastagsag((int)f5Retegek.SelectedItem).ToString();
+            f5Legkisebb.Content = "Legkisebb rétegvastagság: ";
+            f5Legnagyobb.Content = "Legnagyobb rétegvastagság: ";
+            f5Legnagyobb.Content += m.MaxVastagsag((int)f5Retegek.SelectedItem).ToString() + "m";
+            f5Legkisebb.Content += m.MinVastagsag((int)f5Retegek.SelectedItem).ToString() + "m";
+        }
+
+        private void chbLegmagasabb_Checked(object sender, RoutedEventArgs e)
+        {
+            f7Melyseg.Content = "Mélysége a felszíntől: ";
+            f7Sorszam.Content = "Mérés sorszáma: ";
+            f7Melyseg.Content += m.LegmagasabbAlsoLeghatar.ToString();
+            f7Sorszam.Content += m.LegmagasabbAlsoLeghatarSorszama.ToString();
+        }
+
+        private void chbLegmélyebb_Checked(object sender, RoutedEventArgs e)
+        {
+            f7Melyseg.Content = "Mélysége a felszíntől: ";
+            f7Sorszam.Content = "Mérés sorszáma: ";
+            f7Sorszam.Content += m.LegmelyebbAlsoLeghatarSorszama.ToString();
+            f7Melyseg.Content += m.LegmelyebbAlsoLeghatar.ToString();
+        }
+        private void LehetsegesLencsek()
+        {
+            for (int i = 1; i <= m.RetegekSzama; i++)
+            {
+                int top = 315;
+                Label l = new Label();
+                l.Content = i + ". réteg: " + m.LehetsegesLencsekSzama(i) + "db";
+                Canvas.SetLeft(l, 62);
+                Canvas.SetTop(l, top + (i * 17));
+                main.Children.Add(l);
+            }
+        }
+        private void ValodiLencsek()
+        {
+            for (int i = 1; i <= m.RetegekSzama; i++)
+            {
+                int top = 490;
+                Label l = new Label();
+                l.Content = i + ". réteg: " + m.TenylegesLencsekSzama(i) + "db";
+                Canvas.SetLeft(l, 62);
+                Canvas.SetTop(l, top + (i * 17));
+                main.Children.Add(l);
+            }
         }
     }
 }

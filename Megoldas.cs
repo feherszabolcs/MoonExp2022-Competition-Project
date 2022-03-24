@@ -22,6 +22,18 @@ namespace MoonExp2022
                 return s;
             }
         }
+        public int LegmagasabbAlsoLeghatar
+        {
+            get
+            {
+                int s = LegmelyebbAlsoLeghatar;
+                for (int i = 1; i <= MeresekSzama; i++)
+                {
+                    if (SzummaRetegVastagsag(i) < s) s = SzummaRetegVastagsag(i);
+                }
+                return s;
+            }
+        }
         public int LegmelyebbAlsoLeghatarSorszama
         {
             get
@@ -29,6 +41,17 @@ namespace MoonExp2022
                 for (int i = 1; i <= MeresekSzama; i++)
                 {
                     if (SzummaRetegVastagsag(i) == LegmelyebbAlsoLeghatar) return i;
+                }
+                return -1;
+            }
+        }
+        public int LegmagasabbAlsoLeghatarSorszama
+        {
+            get
+            {
+                for (int i = 1; i <= MeresekSzama; i++)
+                {
+                    if (SzummaRetegVastagsag(i) == LegmagasabbAlsoLeghatar) return i;
                 }
                 return -1;
             }
