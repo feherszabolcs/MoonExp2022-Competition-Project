@@ -31,9 +31,11 @@ namespace MoonExp2022
             {
                 f5Retegek.Items.Add(i);
             }
+            f5Retegek.SelectedIndex = 0;
             f6ElvekonyodottDb.Content = m.TeljesenElvekonyodottRetegekSzama + "db réteg vékonyodott el teljesen.";
             LehetsegesLencsek();
             ValodiLencsek();
+            chbLegmagasabb.IsChecked = true;
         }
 
         private void f5Retegek_SelectionChanged(object sender, SelectionChangedEventArgs e)
